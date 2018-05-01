@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Rachid",
+      "authorEmail": "ouattchidi@gmail.com",
+      "authorUrl": "orachide.chidix.fr"
+    }
+  }
+}
