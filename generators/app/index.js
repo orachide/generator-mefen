@@ -56,6 +56,33 @@ module.exports = class extends CommonBaseGenerator {
     };
   }
 
+  get configuring() {
+    return {
+      composeServer() {
+        if (this.skipServer) return;
+
+        this.composeWith(require.resolve('../server'), {
+            'client-hook': !this.skipClient,
+            configOptions: this.configOptions,
+            force: this.options.force,
+            debug: this.isDebugEnabled
+        });
+      },
+
+      composeClient() {
+          if (this.skipClient) return;
+
+          this.composeWith(require.resolve('../client'), {
+              'skip-install': this.options['skip-install'],
+              'skip-commit-hook': this.options['skip-commit-hook'],
+              configOptions: this.configOptions,
+              force: this.options.force,
+              debug: this.isDebugEnabled
+          });
+      },
+    }
+  }
+
   get default() {
     return {
       saveConfig() {
