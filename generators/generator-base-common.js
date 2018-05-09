@@ -1,9 +1,8 @@
 const path = require('path');
 const _ = require('lodash');
-const fs = require('fs');
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
-
+const exec = require('child_process').exec;
 const packagejs = require('../package.json');
 const mefenUtils = require('./utils');
 
@@ -140,7 +139,7 @@ module.exports = class extends Generator {
         });
     }
 
-     /**
+    /**
      * Prints a JHipster logo.
      */
     printMefenLogo() {
@@ -148,20 +147,16 @@ module.exports = class extends Generator {
         this.log(`${chalk.red(' .----------------.  .----------------.')}${chalk.green('   .----------------.  .----------------.')}${chalk.red('   .-----------------.')}`);
         this.log(`${chalk.red(' | .--------------. || .--------------.')}${chalk.green('  || .--------------. || .--------------.')}${chalk.red('  || .--------------. |')}`);
         this.log(`${chalk.red(' | | ____    ____ | || |  _________   |')}${chalk.green('  || |  _________   | || |  _________   |')}${chalk.red('  || | ____  _____  | |')}`);
-        this.log(`${chalk.red(' | ||_   \  /   _|| || | |_   ___  |  |')}${chalk.green('  || | |_   ___  |  | || | |_   ___  |  |')}${chalk.red('  || ||_   \\|_   _| | |')}`);
-        this.log(`${chalk.red(' | |  |   \/   |  | || |   | |_  \_|  |')}${chalk.green('  || |   | |_  \_|  | || |   | |_  \_|  |')}${chalk.red('  || |  |   \\ | |   | |')}`);
-        this.log(`${chalk.red(' | |  | |\  /| |  | || |   |  _|  _   |')}${chalk.green('  || |   |  _|      | || |   |  _|  _   |')}${chalk.red('  || |  | |\\ \\| |   | |')}`);
-        this.log(`${chalk.red(' | | _| |_\/_| |_ | || |  _| |___/ |  |')}${chalk.green('  || |  _| |_       | || |  _| |___/ |  |')}${chalk.red('  || | _| |_\\   |_  | |')}`);
+        this.log(`${chalk.red(' | ||_   \\  /   _|| || | |_   ___  |  |')}${chalk.green('  || | |_   ___  |  | || | |_   ___  |  |')}${chalk.red('  || ||_   \\|_   _| | |')}`);
+        this.log(`${chalk.red(' | |  |   \\/   |  | || |   | |_  \\_|  |')}${chalk.green('  || |   | |_  \\_|  | || |   | |_  \\_|  |')}${chalk.red('  || |  |   \\ | |   | |')}`);
+        this.log(`${chalk.red(' | |  | |\\  /| |  | || |   |  _|  _   |')}${chalk.green('  || |   |  _|      | || |   |  _|  _   |')}${chalk.red('  || |  | |\\ \\| |   | |')}`);
+        this.log(`${chalk.red(' | | _| |_\\/_| |_ | || |  _| |___/ |  |')}${chalk.green('  || |  _| |_       | || |  _| |___/ |  |')}${chalk.red('  || | _| |_\\   |_  | |')}`);
         this.log(`${chalk.red(' | ||_____||_____|| || | |_________|  |')}${chalk.green('  || | |_____|      | || | |_________|  |')}${chalk.red('  || ||_____|\\____| | |')}`);
         this.log(`${chalk.red(' | |              | || |              |')}${chalk.green('  || |              | || |              |')}${chalk.red('  || |              | |')}`);
         this.log(`${chalk.red(' | \'--------------\' || \'--------------\'')}${chalk.green('  || \'--------------\' || \'--------------\'')}${chalk.red('  || \'--------------\' |')}`);
         this.log(`${chalk.red(' \'----------------\'  \'----------------\'')}${chalk.green('   \'----------------\'  \'----------------\'')}${chalk.red('   \'----------------\' ')}`);
         this.log(chalk.white.bold('                            https://www.jhipster.tech\n'));
         this.log(chalk.white('Welcome to the Mefen Generator ') + chalk.yellow(`v${packagejs.version}`));
-        this.log(chalk.green(' _______________________________________________________________________________________________________________\n'));
-        this.log(chalk.white(`  If you find JHipster useful consider supporting our collective ${chalk.yellow('https://opencollective.com/generator-jhipster')}`));
-        this.log(chalk.white(`  Documentation for creating an application: ${chalk.yellow('https://www.jhipster.tech/creating-an-app/')}`));
-        this.log(chalk.green(' _______________________________________________________________________________________________________________\n'));
         this.log(chalk.white(`Application files will be generated in folder: ${chalk.yellow(process.cwd())}`));
     }
 
@@ -227,4 +222,4 @@ module.exports = class extends Generator {
         this.debug(`Time taken to write files: ${new Date() - startTime}ms`);
         return filesOut;
     }
-}
+};
