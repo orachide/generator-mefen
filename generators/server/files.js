@@ -34,11 +34,12 @@ function writeFiles() {
             this.template('config/passport.js.ejs', 'config/passport.js');
         },
         generateServerModels() {
+            this.template('models/index.js.ejs', 'models/index.js');
             this.template('models/User.js.ejs', 'models/User.js');
         },
         generateServerRoutes() {
-            this.template('routes/index.js.ejs', 'routes/index.js');
-            this.template('routes/auth.js.ejs', 'routes/auth.js');
+            this.template('routes/jwtAuth.js.ejs', 'routes/jwtAuth.js');
+            this.template('routes/api/auth.js.ejs', 'routes/api/auth.js');
             this.template('routes/api/index.js.ejs', 'routes/api/index.js');
             this.template('routes/api/users.js.ejs', 'routes/api/users.js');
         },
