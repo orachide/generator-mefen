@@ -25,7 +25,7 @@ yo mefen
 
 ## License
 
-Apache-2.0 © [Rachid](orachide.chidix.fr)
+Apache-2.0 © [Rachid](https://orachide.chidix.fr/)
 
 
 [npm-image]: https://badge.fury.io/js/generator-mefen.svg

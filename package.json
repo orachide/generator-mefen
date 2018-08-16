@@ -1,15 +1,17 @@
 {
   "name": "generator-mefen",
   "version": "0.0.0",
-  "description":
-    "Generate Mongo Express Front End (Angular/React) Node app stack",
+  "description": "Generate Mongo Express Front End (Angular/React) Node app stack",
   "homepage": "https://orachide.chidix.fr",
   "author": {
     "name": "Rachid",
     "email": "ouattchidi@gmail.com",
     "url": "https://orachide.chidix.fr"
   },
-  "files": ["cli", "generators"],
+  "files": [
+    "cli",
+    "generators"
+  ],
   "main": "cli/index.js",
   "keywords": [
     "MEAN",
@@ -66,11 +68,20 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "git add"],
-    "*.json": ["prettier --write", "git add"]
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "eslintConfig": {
-    "extends": ["xo", "prettier"],
+    "extends": [
+      "xo",
+      "prettier"
+    ],
     "env": {
       "jest": true,
       "node": true
@@ -84,7 +95,9 @@
         }
       ]
     },
-    "plugins": ["prettier"]
+    "plugins": [
+      "prettier"
+    ]
   },
   "repository": "orachide/generator-mefen",
   "license": "Apache-2.0"
